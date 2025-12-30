@@ -47,6 +47,33 @@ uninstall binary
 ```bash
 make uninstall
 ```
+### Using Nix
+
+Run instantly:
+
+```bash
+# Run once
+nix run github:6z7y/tomu 'musicfile.mp3'
+```
+
+```bash
+# Or enter a shell with the tomu available
+nix shell github:6z7y/tomu
+```
+
+Or install via **Flakes**:
+
+1. Add to `inputs` in `flake.nix`:
+
+   ```nix
+   inputs.tomu.url = "github:6z7y/tomu";
+   ```
+
+2. Add to `environment.systemPackages` or `home.packages`:
+
+   ```nix
+   inputs.tomu.packages.${pkgs.system}.default
+   ```
 
 ## Usage
 
